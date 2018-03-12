@@ -57,7 +57,6 @@ void add_curve( struct matrix *points,
   struct matrix * y = new_matrix(4, 1);
   y = generate_curve_coefs(y0, y1, y2, y3, type);
   for (t = 0; t < 1; t += step) {
-
     add_edge(points,
 	     x->m[0][0] * pow(t, 3) +
 	     x->m[1][0] * pow(t, 2) +
@@ -79,6 +78,8 @@ void add_curve( struct matrix *points,
 	     y->m[3][0],
 	     0);
   }
+  free_matrix(x);
+  free_matrix(y);
 }
 
 
